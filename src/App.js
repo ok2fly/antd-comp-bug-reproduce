@@ -1,26 +1,53 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Menu } from 'antd';
+import { SettingOutlined } from '@ant-design/icons';
 import './App.css';
+
+const { SubMenu } = Menu;
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <Menu
+        style={{ width: 256 }}
+        defaultSelectedKeys={['1']}
+        defaultOpenKeys={['sub1']}
+        mode="inline"
+      >
+        <Menu.Item key="1">Option 1</Menu.Item>
+        <SubMenu
+          key="sub1"
+          title={
+            <span>
+              <SettingOutlined />
+              <span>Navigation Three</span>
+            </span>
+          }
         >
-          Learn React
-        </a>
-      </header>
+          <Menu.Item key="9">Option 9</Menu.Item>
+        </SubMenu>
+      </Menu>
     </div>
   );
 }
 
 export default App;
+
+
+
+
+
+
+// class Sider extends React.Component {
+//   handleClick = e => {
+//     console.log('click ', e);
+//   };
+
+//   render() {
+//     return (
+
+//     );
+//   }
+// }
+
+// ReactDOM.render(<Sider />, mountNode);
